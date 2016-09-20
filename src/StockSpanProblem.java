@@ -43,23 +43,26 @@ public class StockSpanProblem {
     public static void findLongestSpan(int[] input){
         int pointer1=input.length;
         int pointer2=input.length;
-        int span[input.length];
+        int span[]=new int[input.length];
         Stack stack=new Stack();
-        stack.push(input[input.length-1]);
+        stack.push(input.length-1);
 
-        while(pointer1)
+        for(int i=input.length-2;i>=0;i--){
+            while(!stack.isEmpty() && input[i]>input[stack.peek()]){
+                int k=stack.pop();
+                span[k]=k-i;
+            }
 
-        while(pointer1!=0){
-            pointer2--;
-            if(input[pointer2]>input[pointer1]){
-                span[pointer1]=(pointer2-pointer1);
-                stack.pop();
-                pointer1++;
-            }
-            else if(input[pointer2]<input[pointer1]){
-                stack.push(input[pointer2]);
-                pointer1--;
-            }
+            stack.push(i);
+        }
+
+        while(!stack.isEmpty()){
+            int k=stack.pop();
+            span[k]=k+1;
+        }
+
+        for(int i=0;i<input.length;i++){
+            System.out.print(span[i]+ " ");
         }
     }
 
