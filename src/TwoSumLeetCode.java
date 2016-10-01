@@ -6,13 +6,13 @@ import java.util.HashSet;
 /**
  * Created by S N Rao on 9/30/2016.
  */
-public class TwoSum {
+public class TwoSumLeetCode {
 
     public static void main(String args[]) {
         int numbers[]={2, 7, 11, 15};
 
-        twoSum(numbers,9);
-        twoSumSorted(numbers, 9);
+        twoSum(numbers,9);  //Hashtable
+        twoSumSorted(numbers, 9); //No extra space
     }
 
 

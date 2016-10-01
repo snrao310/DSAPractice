@@ -5,7 +5,7 @@ import java.util.HashMap;
 /**
  * Created by snrao on 9/17/16.
  */
-public class LongestSubstring {
+public class LongestSubstringLeetCode {
 
     public static void main (String args[]){
         String s="abcdaefb";
