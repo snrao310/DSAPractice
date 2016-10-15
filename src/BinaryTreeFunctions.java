@@ -244,9 +244,9 @@ public class BinaryTreeFunctions {
         return null;
     }
 
-    public static void deleteElement(BinaryTreeNode node, int element){
-        Queue queue=new Queue();
-        queue.enqueue(node);
+    public static void deleteElement(BinaryTreeNode node, int element){     //finding any leaf node and
+        Queue queue=new Queue();                                           // replacing with element and
+        queue.enqueue(node);                                               // deleting leaf node.
         BinaryTreeNode theNode;
         BinaryTreeNode leafNode;
         BinaryTreeNode parentNode;
