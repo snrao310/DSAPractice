@@ -194,26 +194,26 @@ public class BinaryTreeTraversals {
 
 
     public static void preOrderTraverse(BinaryTreeNode node){
+        if(node==null)
+            return;
         System.out.print(node.data + " ");
-        if(node.left!=null)
-            preOrderTraverse(node.left);
-        if(node.right!=null)
-            preOrderTraverse(node.right);
+        preOrderTraverse(node.left);
+        preOrderTraverse(node.right);
     }
 
     public static void inOrderTraverse(BinaryTreeNode node){
-        if(node.left!=null)
-            inOrderTraverse(node.left);
+        if(node==null)
+            return;
+        inOrderTraverse(node.left);
         System.out.print(node.data + " ");
-        if(node.right!=null)
-            inOrderTraverse(node.right);
+        inOrderTraverse(node.right);
     }
 
     public static void postOrderTraverse(BinaryTreeNode node){
-        if(node.left!=null)
-            postOrderTraverse(node.left);
-        if(node.right!=null)
-            postOrderTraverse(node.right);
+        if(node==null)
+            return;
+        postOrderTraverse(node.left);
+        postOrderTraverse(node.right);
         System.out.print(node.data + " ");
     }
 
