@@ -280,7 +280,7 @@ public class BinaryTreeTraversals {
                     stack.push(curr.right);
                 }
             }
-            else{                               //when prev==curr (no left or right nodes) or when both left and right nodes are explored.
+            else{                               //when prev==curr (no left or right nodes or both) or when both left and right nodes are explored.
                 stack.pop();
                 System.out.print(curr.data+" ");
             }
