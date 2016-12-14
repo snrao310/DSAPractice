@@ -29,10 +29,10 @@ public class GenerateParanthesesLeetCode {
             return;
         }
         if(open<max){
-            backTrackFunction(list, tempString+'(',max,open+1,close); //Don't need to change the string back since its immutable.
+            backTrackFunction(list, tempString+'(',max,open+1,close); //Don't need to change the string back since its immutable. Sends a new object.
         }
         if(close<open){
-            backTrackFunction(list, tempString+')',max,open,close+1); //Don't need to change the string back since its immutable.
+            backTrackFunction(list, tempString+')',max,open,close+1); //Don't need to change the string back since its immutable. Sends a new object.
         }
     }
 

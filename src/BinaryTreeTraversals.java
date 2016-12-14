@@ -131,7 +131,7 @@ public class BinaryTreeTraversals {
 
     public static class QueueArray<T>{
         int MAX_CAPACITY=20;
-        public T queue[]=(T[])new Object[MAX_CAPACITY];     //Awesome way to make generic arrays.
+        public T queue[]=(T[])new Object[MAX_CAPACITY];     //Awesome way to make generic arrays. Template arrays
         public int front;
         public int rear;
         public int size;
