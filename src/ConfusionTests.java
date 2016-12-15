@@ -37,7 +37,7 @@ public class ConfusionTests {
     }
 
 
-    public static void mainn(String[] args) {
+    public static void main1(String[] args) {
         BinaryTreeNode root = createTree();
         System.out.println(root);
         delete(root);               //deleting root with void
@@ -75,7 +75,7 @@ public class ConfusionTests {
 
 /* CONFUSION WITH STRINGS IMMUTABILITY. Can be hadled using string builders.*/
 
-    public static void main(String arg[]) {
+    public static void main2(String arg[]) {
         String str = "This";
         System.out.println(str);
 
@@ -108,5 +108,35 @@ public class ConfusionTests {
      * IS ACTUALLY QUITE USEFUL IN FUNCTIONS, SINCE YOU DON'T NEED TO BE CAREFUL ABOUT CHANGING THE SAME
      * OBJECT. BUT ITS ALWAYS GOOD TO BE CAREFUL.
      */
+
+
+
+
+    /*STRING COMPARISON ASTONISHINGLY WORKED WITH == RATHER THAN .equals(). SHOCKING. BUT ITS ONLY COZ INTELLIJ IS AWESOME.*/
+
+    public static void main(String arg[]) {
+        String str = "This";
+        String str1="This";
+        String str2=new String("This");
+        if(str==str1)
+            System.out.println("1. It is same"); //Is working here but its not the right way. IntelliJ compiler is
+                                              //considering them the same object after inferring they are referring to
+                                              //their values and finding out its the same.
+        if(str.equals(str1))
+            System.out.println("2. It is same");
+
+        if(str==str2)
+            System.out.println("3. It is same");  //This will not print coz I have explicitly defined str2 as a new string
+                                               // with same value as the other two strings. This would have been the
+                                               // case for str1 also but intellij intelligently didn't create a seperate
+                                               //seperate object.
+
+        if(str.equals(str2))
+            System.out.println("4. It is same");
+
+    }
+
+    /*NEVER USE == TO COMPARE STRINGS. ALWAYS GO FOR .equals(). == COMPARES REFERENCES. ALWAYS ASSUME THAT WHEN YOU DEFINE A
+    * STRING WITH String str="ABCD*; String str1="ABCD"; BOTH OF THEM ARE DIFFERENT OBJECTS EVEN IF THEY HAVE SAME VALUE*/
 
 }

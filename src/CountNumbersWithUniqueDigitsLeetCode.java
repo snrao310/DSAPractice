@@ -1,5 +1,6 @@
 /**
  * Created by snrao on 10/29/16.
+ * Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x < 10^n.
  */
 public class CountNumbersWithUniqueDigitsLeetCode {
 

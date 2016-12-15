@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * Created by snrao on 12/9/16.
- * <p>
+ *
  * Given a digit string, return all possible letter combinations that the number could represent.
  */
 public class LetterCombinationPhoneNumberLeetCode {

@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  * Created by snrao on 12/13/16.
+ * Given a string of numbers and operators, return all possible results from computing all the different possible
+ * ways to group numbers and operators. The valid operators are +, - and *.
  */
 public class DifferentWaysAddParanthesesLeetCode {
 

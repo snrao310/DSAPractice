@@ -4,6 +4,8 @@ import java.util.List;
 
 /**
  * Created by snrao on 12/13/16.
+ * Given a collection of numbers that might contain duplicates, return all possible unique permutations.
+ *
  */
 public class PermutationsIILeetCode {
 

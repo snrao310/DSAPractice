@@ -1,5 +1,6 @@
 /**
  * Created by snrao on 11/5/16.
+ * Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.
  */
 public class MissingNumberLeetCode {
 
