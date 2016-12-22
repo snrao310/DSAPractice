@@ -1,51 +1,54 @@
 /**
- * Created by snrao on 12/17/16.
- *Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
- * Integers in each row are sorted in ascending from left to right.
- * Integers in each column are sorted in ascending from top to bottom.
+ * Created by snrao on 12/21/16.
+ *
+ * Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following
+ * properties:
+ * Integers in each row are sorted from left to right.
+ * The first integer of each row is greater than the last integer of the previous row.
  *
  */
 public class Search2DMatrixLeetCode {
 
-    //Every iteration eliminates at least one row or column or one row or both. Can be more than one. But atleast
-    //one is eliminated. So in m+n steps, we will have the answer.
+    //2d binary search. For MxN matrix, complexity is O(logM+logN).
     public static boolean searchMatrix(int[][] matrix, int target) {
-        int currMinRow=0,currMaxRow=matrix.length-1,currMinCol=0,currMaxCol=matrix[0].length-1;
-        while(currMaxCol>=currMinCol && currMaxRow>=currMinRow){
-            if(matrix[currMinRow][currMinCol]==target)
+        int low=0,high=matrix.length-1;
+        if(high==-1)
+            return false;
+        while (low<=high){
+            int mid=(low+high)/2;
+            if(matrix[mid][0]==target)
                 return true;
-            else if(matrix[currMinRow][currMinCol]>target)
-                return false;
-
-            if(matrix[currMinRow][currMaxCol]==target)
-                return true;
-            else if(matrix[currMinRow][currMaxCol]>target)
-                currMaxCol--;
+            if(matrix[mid][0]>target)
+                high=mid-1;
             else
-                currMinRow++;
+                low=low+1;
+        }
 
-            if(matrix[currMaxRow][currMaxCol]==target)
-                return true;
-            else if(matrix[currMaxRow][currMaxCol]<target)
-                return false;
 
-            if(matrix[currMaxRow][currMinCol]==target)
+        int theRow=0;
+        if(low!=matrix.length && matrix[low][0]<target)
+            theRow=low;
+        else if(high!=-1 && matrix[high][0]<target)
+            theRow=high;
+        else return false;
+
+        low=0;high=matrix[0].length-1;
+        while (low<=high){
+            int mid=(low+high)/2;
+            if(matrix[theRow][mid]==target)
                 return true;
-            else if(matrix[currMaxRow][currMinCol]>target)
-                currMaxRow--;
+            if(matrix[theRow][mid]>target)
+                high=mid-1;
             else
-                currMinCol++;
-
+                low=low+1;
         }
         return false;
     }
 
+
     public static void main(String args[]){
-        System.out.println(searchMatrix(new int[][]
-                                        {{1,  4,  7, 11, 15},
-                                        {2,   5,  8, 12, 19},
-                                        {3,   6,  9, 16, 22},
-                                        {10, 13, 14, 17, 24},
-                                        {18, 21, 23, 26, 30}},26));
+        System.out.println(searchMatrix(new int[][]{{1,3,5,7}, {10,1,16,20},{23,30,34,50}},3));
+        System.out.println(searchMatrix(new int[][]{{1}},0));
     }
 }
+
