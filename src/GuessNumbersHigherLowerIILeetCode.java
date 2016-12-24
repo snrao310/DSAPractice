@@ -11,6 +11,9 @@ import java.util.Arrays;
  * Given a particular n ≥ 1, find out how much money you need to have to guarantee a win.
  *
  */
+
+//Min max problems: Minimize maximum loss. i.e. find best move considering worst case feedback for
+// each move you make.
 public class GuessNumbersHigherLowerIILeetCode {
 
     public static int getMoneyAmount(int n) {
