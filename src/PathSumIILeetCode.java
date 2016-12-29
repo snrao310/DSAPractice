@@ -17,22 +17,19 @@ public class PathSumIILeetCode {
     }
 
     public static TreeNode createTree(){
-//        TreeNode root=new TreeNode(5);
-//        TreeNode four=new TreeNode(4);
-//        TreeNode eight= new TreeNode(8);
-//        TreeNode eleven=new TreeNode(11);
-//        TreeNode thirteen=new TreeNode(13);
-//        TreeNode four2=new TreeNode(4);
-//        TreeNode five= new TreeNode(5);
-//        TreeNode one= new TreeNode(1);
-//        TreeNode seven= new TreeNode(7);
-//        TreeNode two= new TreeNode(2);
-//        root.left=four; root.right=eight; four.left=eleven;
-//        eleven.left=seven; eleven.right=two; eight.left=thirteen; eight.right=four2;
-//        four2.left=five;four2.right=one;
-        TreeNode root=new TreeNode(-2);
-        TreeNode child=new TreeNode(-3);
-        root.right=child;
+        TreeNode root=new TreeNode(5);
+        TreeNode four=new TreeNode(4);
+        TreeNode eight= new TreeNode(8);
+        TreeNode eleven=new TreeNode(11);
+        TreeNode thirteen=new TreeNode(13);
+        TreeNode four2=new TreeNode(4);
+        TreeNode five= new TreeNode(5);
+        TreeNode one= new TreeNode(1);
+        TreeNode seven= new TreeNode(7);
+        TreeNode two= new TreeNode(2);
+        root.left=four; root.right=eight; four.left=eleven;
+        eleven.left=seven; eleven.right=two; eight.left=thirteen; eight.right=four2;
+        four2.left=five;four2.right=one;
         return root;
     }
 
@@ -58,7 +55,7 @@ public class PathSumIILeetCode {
 
     public static void main(String args[]){
         TreeNode root=createTree();
-        List<List<Integer>> list=pathSum(root,-5);
+        List<List<Integer>> list=pathSum(root,22);
         for(List<Integer> l:list){
             for(int i:l)
                 System.out.print(i+" ");
