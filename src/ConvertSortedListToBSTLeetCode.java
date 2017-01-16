@@ -1,3 +1,5 @@
+import java.util.List;
+
 /**
  * Created by snrao on 12/27/16.
  *
@@ -19,6 +21,10 @@ public class ConvertSortedListToBSTLeetCode {
         public TreeNode(int val){this.val=val;}
     }
 
+    static ListNode list=null;
+
+    //O(nlogn) method analogous to how we would do in arrays. In arrays it would be O(n) coz no need to traverse to find
+    //center element.
     public static TreeNode sortedListToBST(ListNode head) {
         if(head==null) return null;
         if(head.next==null) return new TreeNode(head.val);
@@ -34,6 +40,31 @@ public class ConvertSortedListToBSTLeetCode {
         root.left=sortedListToBST(head);
         root.right=sortedListToBST(list.next);
         return root;
+    }
+
+    //O(n) algorithm. Bottom-up filling of tree.
+    public static TreeNode sortedListToBST2(ListNode head){
+        if(head==null) return null;
+        if(head.next==null) return new TreeNode(head.val);
+        int n=0;
+        ListNode temp=head;
+        while(temp!=null){
+            temp=temp.next;
+            n++;
+        }
+        list=head;
+        return helper(0,n-1);
+    }
+
+    private static TreeNode helper(int start, int end){
+        if(start>end) return null;
+        int mid=(start+end)/2;
+        TreeNode left=helper(start,mid-1);     //when this returns list will be pointing to mid index
+        TreeNode parent=new TreeNode(list.val);     //So we use the list value to make it the parent.
+        parent.left=left;
+        list=list.next;
+        parent.right=helper(mid+1,end);
+        return parent;
     }
 
     public static void inOrder(TreeNode node){
@@ -52,7 +83,7 @@ public class ConvertSortedListToBSTLeetCode {
         one.next.next.next.next=new ListNode(7);
         one.next.next.next.next.next=new ListNode(9);
 
-        TreeNode root=sortedListToBST(one);
+        TreeNode root=sortedListToBST2(one);
         inOrder(root);
     }
 }
