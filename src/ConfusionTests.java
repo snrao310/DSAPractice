@@ -73,7 +73,8 @@ public class ConfusionTests {
 
 
 
-/* CONFUSION WITH STRINGS IMMUTABILITY. Can be hadled using string builders.*/
+/* CONFUSION WITH STRINGS IMMUTABILITY. STRINGS ARE LIKE PRIMITIVE TYPES BUT NEED TO DO EQUALS() TO COMPARE THEM.
+ Changing inside a function can be handled using string builders.*/
 
     public static void main2(String arg[]) {
         String str = "This";
