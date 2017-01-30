@@ -73,14 +73,16 @@ public class ConfusionTests {
 
 
 
-/* CONFUSION WITH STRINGS IMMUTABILITY. STRINGS ARE LIKE PRIMITIVE TYPES BUT NEED TO DO EQUALS() TO COMPARE THEM.
- Changing inside a function can be handled using string builders.*/
+/* CONFUSION WITH STRINGS IMMUTABILITY. STRINGS ARE IMMUTABLE MEANS THAT WHEN YOU CHANGE A STRING A NEW STRING GETS CREATED IN
+MEMORY. IF YOU PASS A STRING TO A FUNCTION AND CHANGE IT THERE, THEN THE CALLING FUNCTION WILL STILL BE POINTING TO THE FIRST
+STRING. STRING BUILDER HAS FIXED SPACE IN MEMORY. ANYCHANGES MADE TO IT WILL HAPPEN TO THE SAME STRINGBUILDER.
+Changing inside a function can be handled using string builders.*/
 
     public static void main2(String arg[]) {
         String str = "This";
         System.out.println(str);
 
-        str += " is";
+        str += " is";           //new string now
         System.out.println(str);
 
         changeString(str);
@@ -90,7 +92,7 @@ public class ConfusionTests {
         StringBuilder strBld=new StringBuilder("This");
         System.out.println(strBld.toString());
 
-        strBld.append(" is");
+        strBld.append(" is");   //same string builder even now
         System.out.println(strBld.toString());
 
         changeStringBuilder(strBld);
