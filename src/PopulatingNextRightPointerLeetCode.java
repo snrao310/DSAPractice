@@ -86,20 +86,61 @@ public class PopulatingNextRightPointerLeetCode {
         connect_recursive(root.right);
     }
 
-    public static void check(TreeLinkNode root){
-        List<TreeLinkNode> leftMost=new ArrayList<>();
-        TreeLinkNode curr=root;
-        while (curr!=null){
-            leftMost.add(curr);
-            curr=curr.left;
-        }
-        for(TreeLinkNode nod: leftMost){
-            curr=nod;
-            while (curr!=null){
-                System.out.print(curr.val+" ");
-                curr=curr.next;
+
+
+    //Iterative O(n) time. Constant space. Best solution Awesome!!! LEVEL ORDER TRAVERSAL CAN BE DONE WITH CONSTANT SPACE.
+    public static void connect2(TreeLinkNode root) {
+        TreeLinkNode cur=root;
+        while (cur!=null){
+            TreeLinkNode prev=null;
+            TreeLinkNode first=null;
+            while(cur!=null){
+                if(cur.left!=null){
+                    if(prev==null)
+                        first=cur.left;
+                    else
+                        prev.next=cur.left;
+                    prev=cur.left;
+                }
+                if(cur.right!=null){
+                    if(prev==null)
+                        first=cur.right;
+                    else
+                        prev.next=cur.right;
+                    prev=cur.right;
+                }
+                cur=cur.next;
             }
-            System.out.println();
+            cur=first;
+        }
+    }
+
+    public static void check(TreeLinkNode root){
+        Queue<TreeLinkNode> queue=new LinkedList<>();
+        queue.offer(root);
+        queue.offer(null);
+        TreeLinkNode prev=null;
+        while(!queue.isEmpty()){
+            TreeLinkNode cur=queue.poll();
+            if(prev==null){
+                TreeLinkNode temp=cur;
+                while(temp!=null){
+                    System.out.print(temp.val+" ");
+                    temp=temp.next;
+                }
+                System.out.println();
+            }
+            if(cur!=null){
+                if(cur.left!=null)
+                    queue.offer(cur.left);
+                if(cur.right!=null)
+                    queue.offer(cur.right);
+            }
+            else{
+                if(!queue.isEmpty())
+                    queue.offer(null);
+            }
+            prev=cur;
         }
     }
 
