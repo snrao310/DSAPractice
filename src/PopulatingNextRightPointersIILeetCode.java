@@ -45,7 +45,8 @@ public class PopulatingNextRightPointersIILeetCode {
         }
     }
 
-    //Iterative O(n) time. Constant space. Awesome!!!
+    //Iterative O(n) time. Constant space. Awesome!!! LEVEL ORDER TRAVERSAL CAN BE DONE WITH CONSTANT SPACE
+    // IF THERE IS A POINTER TO RIGHT SIBLING.
     public static void connect2(TreeLinkNode root) {
         TreeLinkNode cur=root;
         while (cur!=null){
