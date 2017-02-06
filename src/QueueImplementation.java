@@ -3,7 +3,7 @@ import java.util.EmptyStackException;
 /**
  * Created by S N Rao on 2/4/2017.
  */
-public class Queue {
+public class QueueImplementation {
 
     public static class QueueList{
         public class QueueNode{

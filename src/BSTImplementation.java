@@ -1,7 +1,7 @@
 /**
  * Created by S N Rao on 2/4/2017.
  */
-public class BST {
+public class BSTImplementation {
 
     public static class TreeNode{
         int val;

@@ -3,7 +3,7 @@ import java.util.EmptyStackException;
 /**
  * Created by S N Rao on 2/4/2017.
  */
-public class Stack {
+public class StackImplementation {
 
     public static class StackList{
         private class StackNode{
