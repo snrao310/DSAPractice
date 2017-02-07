@@ -67,7 +67,7 @@ public class WiggleSortIILeetCode {
         int len=end-start;
         if(pivIndexStart<=(start+k-1) && pivIndexEnd>=(start+k-1)) return;
         else if(pivIndexEnd > (start+k-1)) partitionAroundMedian(nums,k,start,pivIndexStart-1);
-        else partitionAroundMedian(nums,k-pivIndexEnd-1,pivIndexEnd+1,end);
+        else partitionAroundMedian(nums,k-(pivIndexEnd-start)-1,pivIndexEnd+1,end);     //has to be k-(pivIndexEnd-start)-1, not k-pivIndexEnd-1. Its a common mistake.
     }
 
     public static void main(String args[]){

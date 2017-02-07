@@ -39,7 +39,8 @@ public class KthLargestElementInArrayLeetCode {
         if(((end-start+1) - (pivot-start)) >k)
             return randomizedSelection(nums,k,pivot+1,end);
         else
-            return randomizedSelection(nums,k- (end-pivot+1),start,pivot-1);
+            return randomizedSelection(nums,k- (end-pivot+1),start,pivot-1);    //careful with deciding k value being passed.
+                                                                                // remember that just k and pivot are not enough to decide this.
     }
 
 
