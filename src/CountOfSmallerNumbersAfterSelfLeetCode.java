@@ -23,6 +23,9 @@ public class CountOfSmallerNumbersAfterSelfLeetCode {
         return result;
     }
 
+    //Merge sort itself but using index array instead of actual numbers. After sorting, if you read elemnts from nums
+    //array in order of indices specified by the index array, you will get sorted list. But nums array itself will not be
+    //sorted. It will remain the same.
     private static void mergeSortFunction(int[] index, int[] nums, int[] resultArray) {
         if(index.length==1) return;
         int n=index.length;
