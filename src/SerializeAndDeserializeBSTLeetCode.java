@@ -56,6 +56,8 @@ public class SerializeAndDeserializeBSTLeetCode {
 
 
 
+    //Since its a BST, assuming that there are no duplicate nodes. If there are duplicates, then this method won't work.
+    //For a working serialization and deserialization even when there are duplicates, refer SerializeAndDeserializeBinaryTree.
     public static class Codec {
         // Encodes a tree to a single string.
         public String serialize(TreeNode root) {
