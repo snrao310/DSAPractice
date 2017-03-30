@@ -9,7 +9,7 @@ import java.util.LinkedHashSet;
  * operations: get and put.
  *
  * get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.
- * put(key, value) - Set or insert the value if the key is not already present. When the cache reaches its capacity, it
+ * put(key, value) - [Set] or [insert the value if the key is not already present]. When the cache reaches its capacity, it
  * should invalidate the least frequently used item before inserting a new item. For the purpose of this problem, when
  * there is a tie (i.e., two or more keys that have the same frequency), the least recently used key would be evicted.
  *
@@ -32,7 +32,7 @@ import java.util.LinkedHashSet;
  */
 public class LFUCacheLeetCode {
 
-    //One important point not mentioned in the question is the definition of "Use". According to the test cases, both set
+    //One important point not mentioned in the question is the definition of "Use". According to the test cases, both put
     //and get (not just get) are considered use. So if a new key is added, its freq is 1, and more importantly, when a
     //key's value is updated, its frequency increases.
 
