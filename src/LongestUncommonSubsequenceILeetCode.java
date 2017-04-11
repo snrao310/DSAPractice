@@ -25,6 +25,7 @@
  */
 public class LongestUncommonSubsequenceILeetCode {
 
+    //Using the logic of Longest Uncommon Subsequence II
     public static int findLUSlength(String a, String b) {
         if(a.equals(b)) return -1;
         return Math.max(a.length(),b.length());
