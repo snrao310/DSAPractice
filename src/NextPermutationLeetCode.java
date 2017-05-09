@@ -9,6 +9,9 @@
  */
 public class NextPermutationLeetCode {
 
+    //Same thing as NextGreaterElementIIILeetCode. Find the last peak in the array in number and swap the number before
+    //the peak with the smallest number after the peak [number that would comes after the (number before peak) in sorted
+    //array of these elements]. Then, reverse everything from this last peak to the end of array. That's it. O(n) time.
     public static void nextPermutation(int[] nums) {
         if(nums.length==0) return;;
         int lastMin=0, next=0;
