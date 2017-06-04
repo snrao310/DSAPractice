@@ -77,4 +77,5 @@ public class AddAndSearchWordDataStructureDesignLeetCode {
         System.out.println(obj.search("abc"));
         System.out.println(obj.search(".am.."));
     }
+
 }

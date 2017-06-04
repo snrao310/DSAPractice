@@ -1,5 +1,3 @@
-import com.sun.scenario.effect.impl.state.LinearConvolveKernel;
-
 import java.util.*;
 
 /**
