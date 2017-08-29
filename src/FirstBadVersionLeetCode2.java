@@ -1,5 +1,5 @@
 /**
- * Created by S N Rao on 4/26/2017.
+ * Created by S N Rao on 8/29/2017.
  *
  * You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version
  * of your product fails the quality check. Since each version is developed based on the previous version, all the
@@ -12,7 +12,7 @@
  * find the first bad version. You should minimize the number of calls to the API.
  *
  */
-public class FirstBadVersionLeetCode {
+public class FirstBadVersionLeetCode2 {
 
     static int BAD_VERSION=7;
 
@@ -24,12 +24,10 @@ public class FirstBadVersionLeetCode {
         int min=1, max=n;
         while(min<max){
             int mid=min+(max-min)/2;
-            if(isBadVersion(mid))
-                max=mid;
-            else
-                min=mid+1;
+            if(isBadVersion(mid)) max=mid;
+            else min=mid+1;
         }
-        return min;
+        return max;
     }
 
     public static void main(String args[]){

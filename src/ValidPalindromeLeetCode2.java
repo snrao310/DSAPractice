@@ -1,5 +1,5 @@
 /**
- * Created by S N Rao on 4/25/2017.
+ * Created by S N Rao on 8/29/2017.
  *
  * Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.
  *
@@ -13,29 +13,20 @@
  * For the purpose of this problem, we define empty string as valid palindrome.
  *
  */
-public class ValidPalindromeLeetCode {
+public class ValidPalindromeLeetCode2 {
 
     public static boolean isPalindrome(String s) {
+        if(s.length()==0) return true;
+        s=s.toLowerCase();
         char[] st=s.toCharArray();
-        int i=0, j=st.length-1;
-        while(i<j){
-            char c1=st[i], c2=st[j];
-            if(!isValid(c1)) {i++; continue;}
-            else c1=Character.toLowerCase(c1);
-
-            if(!isValid(c2)) {j--; continue;}
-            else c2=Character.toLowerCase(c2);
-
-            if(c1!=c2) return false;
-            else{i++; j--;}
+        int i=0,j=st.length-1;
+        while(i<=j){
+            if(!Character.isLetterOrDigit(st[i])) {i++; continue;}
+            else if(!Character.isLetterOrDigit(st[j])) {j--; continue;}
+            else if(st[i]!=st[j]) return false;
+            i++; j--;
         }
         return true;
-    }
-
-    private static boolean isValid(Character c){
-        if(Character.isAlphabetic(c)) return true;
-        if(Character.isDigit(c)) return true;
-        return false;
     }
 
     public static void main(String args[]){

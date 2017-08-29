@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 /**
- * Created by S N Rao on 4/17/2017.
+ * Created by S N Rao on 8/29/2017.
  *
  * Rotate an array of n elements to the right by k steps.
  *
@@ -11,28 +11,29 @@ import java.util.Arrays;
  * Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem.
  *
  */
-public class RotateArrayLeetCode {
+public class RotateArrayLeetCode2 {
 
     //Chaitanya's trick with the triangle representing the strings.
     public static void rotate(int[] nums, int k) {
-        int n=nums.length; k=k%n;
-        reverse(nums,0,n-k-1);
-        reverse(nums,n-k,n-1);
-        reverse(nums,0,n-1);
+        k%=nums.length;
+        reverse(nums,0,nums.length-k-1);
+        reverse(nums,nums.length-k,nums.length-1);
+        reverse(nums,0,nums.length-1);
     }
 
-    private static void reverse(int[] nums,int start,int end){
-        int j=end-start+1;
-        for(int i=0;i<j/2;i++){
-            int temp=nums[start+i];
-            nums[start+i]=nums[end-i];
-            nums[end-i]=temp;
+    private static void reverse(int[] nums, int start,int end){
+        int n=(end-start)+1;
+        for(int i=0;i<n/2;i++){
+            int temp=nums[i+start];
+            nums[i+start]=nums[n-i-1+start];
+            nums[n-i-1+start]=temp;
         }
     }
 
     public static void main(String args[]){
-        int[] nums=new int[]{1,2,3,4,5,6,7};
-        rotate(nums,3);
+        int[] nums=new int[]{1};
+        rotate(nums,0);
         System.out.print(Arrays.toString(nums));
     }
 }
+
