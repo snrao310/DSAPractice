@@ -1,5 +1,5 @@
 /**
- * Created by S N Rao on 1/26/2017.
+ * Created by S N Rao on 11/14/2017.
  *
  * The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to
  * display this pattern in a fixed font for better legibility)
@@ -23,30 +23,28 @@
  *  read as "PINALSIGYAHRPI"
  *
  */
-public class ZigZagConversionLeetCode {
+public class ZigZagConversionLeetCode2 {
 
     public static String convert(String str, int numRows) {
         if(numRows==1) return str;
-        int r=numRows,n=str.length();
-        char[] s=str.toCharArray();
-        char[] st=new char[n];
-        int k=0;
-        for(int i=0;i<r;i++){
-            int j=i;
-            while(j<n){
-                st[k++]=s[j];
-                int newj=j+(2*r-2);
-                if(i!=0 && i!=r-1){
-                    if(newj-2*i<n)
-                        st[k++]=s[newj-2*i];
+        char[] res=new char[str.length()];
+        int len=str.length(),j=0;
+        for(int i=0;i<numRows;i++){
+            int k=i;
+            while(k<len){
+                res[j++]=str.charAt(k);
+                if(i!=0 && i!=numRows-1){
+                    int r=(numRows-i-1);
+                    if(k+2*r < len)
+                        res[j++]=str.charAt(k+2*r);
                 }
-                j=newj;
+                k+= ((numRows-1)*2);
             }
         }
-        return new String(st);
+        return new String(res);
     }
 
     public static void main(String args[]){
-        System.out.println(convert("PAYPALISHIRING",4));
+        System.out.println(convert("A",1));
     }
 }
