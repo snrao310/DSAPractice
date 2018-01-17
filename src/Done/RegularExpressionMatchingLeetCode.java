@@ -1,3 +1,5 @@
+package Done;
+
 /**
  * Created by S N Rao on 3/20/2017.
  *
@@ -76,5 +78,8 @@ public class RegularExpressionMatchingLeetCode {
         System.out.println(isMatch("aab","c*a*ab"));
         System.out.println(isMatch("aab","c*a*aaab"));
         System.out.println(isMatch("a" ,"ab*"));
+        System.out.println(isMatch("" ,".*"));
+        System.out.println(isMatch("ab" ,".*"));
+
     }
 }
