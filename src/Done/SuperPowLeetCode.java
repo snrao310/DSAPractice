@@ -1,3 +1,5 @@
+package Done;
+
 /**
  * Created by snrao on 12/26/16.
  *
@@ -20,7 +22,7 @@ public class SuperPowLeetCode {
         return result;
     }
 
-    //f(a,1234567) = f(a, 1234560) * f(a, 7) % 1337 = f(f(a, 123456),10) * f(a,7)%1337
+    //f(a,1234567) = [f(a, 1234560) * f(a, 7)] % 1337 = [f(f(a, 123456),10) * f(a,7)] %1337
     private static int superPow(int a, int[] b, int end){
         if(end==0)
             return 1;
