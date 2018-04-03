@@ -1,3 +1,5 @@
+package Done;
+
 import java.util.Arrays;
 
 /**
@@ -28,7 +30,7 @@ public class PredictTheWinnerLeetCode {
         return canWin(0,len-1,0,0,dp,nums,(int)Math.ceil((double) sum/2));
     }
 
-    //With DP.
+    //With DP. Check DSAPractice2. The solution is better. Crisp and classy.
     private static boolean canWin(int start,int end,int s1,int s2,int[][] dp, int[] nums,int halfSum){
         if(dp[start][end]!=-1){
             if(s1+dp[start][end]>=halfSum) return true;
