@@ -1,3 +1,5 @@
+package Done;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,8 +34,8 @@ public class PopulatingNextRightPointerLeetCode {
         return root;
     }
 
-    //Level order traversal - works for all binary trees.
-    public static void connect(TreeLinkNode root) {
+    //Level order traversal - works for all binary trees. but not constant space
+    public static void connect2(TreeLinkNode root) {
         if(root==null)
             return;
         Queue<TreeLinkNode> queue=new LinkedList<>();
@@ -59,7 +61,7 @@ public class PopulatingNextRightPointerLeetCode {
     }
 
     //recursive - works only for complete binary trees. For example 9 and 10 wont be connected if the following
-    // incomplete tree is given.
+    // incomplete tree is given. Also not constant space since its recursion. stack space used is O(logn).
     //                             1
     //                           /    \
     //                         2        3
@@ -87,9 +89,9 @@ public class PopulatingNextRightPointerLeetCode {
     }
 
 
-    //Iterative O(n) time. Constant space. Best solution Awesome!!! LEVEL ORDER TRAVERSAL CAN BE DONE WITH CONSTANT SPACE
-    // IF THERE IS A POINTER TO RIGHT SIBLING.
-    public static void connect2(TreeLinkNode root) {
+    //Iterative O(n) time. Constant space. Best solution Awesome!!! LEVEL ORDER TRAVERSAL is not constant space because
+    // it uses the queue. Check DSAPractice2 for neater iterative solution.
+    public static void connect(TreeLinkNode root) {
         TreeLinkNode cur=root;
         while (cur!=null){
             TreeLinkNode prev=null;
