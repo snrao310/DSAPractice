@@ -9,6 +9,8 @@ import java.util.List;
  */
 public class LetterCombinationPhoneNumberLeetCode {
 
+
+    //Well, this is a really crappy solution. Check DSAPractice2 for neat backtracking solution.
     public static List<String> letterCombinations(String digits) {
         HashMap<Integer, List<String>> map = new HashMap<>();
         if(digits.equals(""))
@@ -54,6 +56,7 @@ public class LetterCombinationPhoneNumberLeetCode {
 
     public static void main(String args[]) {
 
-            List c=letterCombinations("999");
+            System.out.println(letterCombinations("999"));
+
     }
 }
