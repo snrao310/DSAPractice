@@ -1,3 +1,5 @@
+package Done;
+
 /**
  * Created by snrao on 12/17/16.
  *Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
@@ -5,10 +7,11 @@
  * Integers in each column are sorted in ascending from top to bottom.
  *
  */
-public class Search2DMatrixLeetCodeII {
+public class Search2DMatrixIILeetCode {
 
-    //Every iteration eliminates at least one row or column or one row or both. Can be more than one. But atleast
+    //Every iteration eliminates at least one row or one column or both. Can be more than one. But atleast
     //one is eliminated. So in m+n steps, we will have the answer.
+    //DSAPractice2 has a better logm + logn method. Check it out.
     public static boolean searchMatrix(int[][] matrix, int target) {
         int currMinRow=0,currMaxRow=matrix.length-1,currMinCol=0,currMaxCol=matrix[0].length-1;
         while(currMaxCol>=currMinCol && currMaxRow>=currMinRow){
