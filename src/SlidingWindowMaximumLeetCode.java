@@ -35,7 +35,7 @@ public class SlidingWindowMaximumLeetCode {
     //
     //But the question asks for O(n). Key observation is that all elements in the window are not needed
     //to find max in the window. Redundant elements can be removed. Also, a double-ended queue or DEqueue is a suitable
-    //choice for this question. For comlexity analysis, think of it this way: Each element is put and polled from the
+    //choice for this question. For complexity analysis, think of it this way: Each element is put and polled from the
     //queue once.
     public static int[] maxSlidingWindow(int[] nums, int k) {
         if(nums==null || nums.length==0 || k==1) return nums;

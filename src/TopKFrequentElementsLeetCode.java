@@ -51,7 +51,7 @@ public class TopKFrequentElementsLeetCode {
     }
 
 
-    //O(n) time, coz List is actually an arraylist, so average time to add is o(1).
+    //O(n) time, coz List is actually an arraylist, so average time to add is o(1). bucket sort.
     public static List<Integer> topKFrequent2(int[] nums, int k) {
         List<Integer>[] freqToNums=new List[nums.length+1];
         HashMap<Integer,Integer> numsToFreq=new HashMap<>();
