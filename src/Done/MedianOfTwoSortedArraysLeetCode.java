@@ -137,6 +137,7 @@ First find the middle element of B[], which is 12 for above array. There are fol
 …2.4 If A[0] is greater than 15, the median is average of 12 and 15.
 In all the sub-cases, we find that 12 is fixed. So, we need to find the median of B[ M / 2 – 1 ], B[ M / 2 + 1], A[ 0 ]
 and take its average with B[ M / 2 ].
+Or even better, just take median of B[ M / 2 – 1 ], B[ M / 2 + 1], A[ 0 ] and B[ M / 2 ].
 
 Case 3: N = 1, M is even
 Let B[4] = {5, 10, 12, 15}
