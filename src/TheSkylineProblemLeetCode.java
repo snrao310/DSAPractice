@@ -39,7 +39,7 @@ public class TheSkylineProblemLeetCode {
 
     //Complexity: Every building gets added and polled out of heap once. The complexity pushing is logn in worst case
     //if every building is in the heap. So the overall complexity is O(nlogn). The key is reducing complexity of deletion
-    //Deleting of buildings that no longer matter from the heap happens only when they come to the root. Else finding and
+    //Deleting of buildings that no longer matter from the heap happens only when they come to the root (logn). Else finding and
     //deleting in heap is O(n) operation.
     public static List<int[]> getSkyline(int[][] buildings) {
         if(buildings.length==0) return new ArrayList<>();
