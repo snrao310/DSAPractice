@@ -28,7 +28,7 @@ public class ShuffleAnArrayLeetCode {
         int[] original;
 
         public Solution(int[] nums) {
-            original=nums;
+            original = nums;
         }
 
         /** Resets the array to its original configuration and return it. */
@@ -38,18 +38,16 @@ public class ShuffleAnArrayLeetCode {
 
         /** Returns a random shuffling of the array. */
         public int[] shuffle() {
-            int[] shuffled= Arrays.copyOf(original,original.length);
-            for(int i=0;i<shuffled.length;i++){
-                int randInd=(int) (Math.random()*shuffled.length);
-                swap(shuffled,i,randInd);
+            int len=original.length;
+            int[] shuffled=new int[len];
+            for(int i=0;i<len;i++) shuffled[i]=original[i];
+            for(int i=0;i<len;i++){
+                int rand = i + (int)(Math.random()*(len-i));
+                int temp = shuffled[i];
+                shuffled[i]=shuffled[rand];
+                shuffled[rand]=temp;
             }
             return shuffled;
-        }
-
-        private void swap(int[] array,int i,int j){
-            int temp=array[i];
-            array[i]=array[j];
-            array[j]=temp;
         }
     }
 
