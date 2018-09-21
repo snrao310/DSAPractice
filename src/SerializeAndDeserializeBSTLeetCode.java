@@ -56,53 +56,52 @@ public class SerializeAndDeserializeBSTLeetCode {
 
 
 
-    //Since its a BST, assuming that there are no duplicate nodes. If there are duplicates, then this method won't work.
-    //For a working serialization and deserialization even when there are duplicates, refer SerializeAndDeserializeBinaryTree.
+    //To construct a BST, we only need either preorder or postorder. We can't do it with inorder because it will always be just a sorted sequence.
+    //While constructing with preorder, we need to look for first element greater than this number in the sequence which will be the start of the right tree.
+    //Finding this in each call will be an overhead, so we are using a global variable and just exiting when greater value is found. The calling function will
+    //thus have the index of the first greater number.
+    //Same with postorder but we will start from right and look for first smaller number on the left to know where the left subtree starts.
     public static class Codec {
+
+        int deserializeInd=0;
+
+        // Encodes a tree to a single string.
+        private void preorder(TreeNode root, StringBuilder sb){
+            if(root==null) return;
+            sb.append(root.val+",");
+            preorder(root.left,sb);
+            preorder(root.right,sb);
+        }
+
         // Encodes a tree to a single string.
         public String serialize(TreeNode root) {
-            String inOrder="",preOrder="";
-            List<Integer> in=new ArrayList<>();
-            inOrder(root,in);
-            List<Integer> pre=new ArrayList<>();
-            preOrder(root,pre);
-            for(int i: in) inOrder+=","+i;
-            System.out.println();
-            for(int i: pre) preOrder+=","+i;
-            if(inOrder.length()==0) return "";
-            return inOrder.substring(1)+" "+preOrder.substring(1);
+            StringBuilder sb=new StringBuilder();
+            preorder(root,sb);
+            if(sb.length()!=0) sb.deleteCharAt(sb.length()-1);
+            return sb.toString();
+        }
+
+        private TreeNode createSubtree(int[] data, int max){
+            if(deserializeInd>=data.length || (deserializeInd<data.length && data[deserializeInd]>max)) return null;
+            TreeNode root=new TreeNode(data[deserializeInd++]);
+            root.left = createSubtree(data,root.val);
+            root.right = createSubtree(data,max);
+            return root;
         }
 
         // Decodes your encoded data to tree.
         public TreeNode deserialize(String data) {
             if(data.length()==0) return null;
-            String[] orders=data.split(" ");
-            String[] pre=orders[1].split(","), in=orders[0].split(",");
-            int[] preOrder=new int[pre.length], inOrder=new int[in.length];
-            for(int i=0;i<in.length;i++) inOrder[i]=Integer.parseInt(in[i]);
-            for(int i=0;i<pre.length;i++) preOrder[i]=Integer.parseInt(pre[i]);
-            return construnctFromTraversal(inOrder,preOrder,0,in.length-1,0,pre.length-1);
-        }
-
-        private TreeNode construnctFromTraversal(int[] inOrder,int[] preOrder, int inStart,int inEnd, int preStart, int preEnd){
-            if(inEnd<inStart) return null;
-            int rootVal=preOrder[preStart], ind=-1;
-            for(int i=inStart;i<=inEnd;i++){
-                if(inOrder[i]==rootVal){
-                    ind=i;
-                    break;
-                }
-            }
-            int leftLen=ind-inStart, preLeftEnd=preStart+leftLen, preRightStart=preLeftEnd+1;
-            TreeNode root=new TreeNode(rootVal);
-            root.left=construnctFromTraversal(inOrder,preOrder,inStart,ind-1,preStart+1,preLeftEnd);
-            root.right=construnctFromTraversal(inOrder,preOrder,ind+1,inEnd,preRightStart,preEnd);
-            return root;
+            String[] parts= data.split(",");
+            int[] intParts = new int[parts.length];
+            for(int i=0;i<parts.length;i++) intParts[i]=Integer.parseInt(parts[i]);
+            deserializeInd=0;
+            return createSubtree(intParts,Integer.MAX_VALUE);
         }
     }
 
     public static void main(String args[]){
-        TreeNode root=createTree();
+        TreeNode root=null;
         Codec codec = new Codec();
         root=codec.deserialize(codec.serialize(root));
         List<Integer> in=new ArrayList<>();
